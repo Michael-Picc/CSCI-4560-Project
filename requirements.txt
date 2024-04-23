@@ -9,3 +9,6 @@ djangorestframework==3.14.0
 
 # MySQL Client - Used as an interface to connect Django application to the MySQL server.
 mysqlclient==2.2.4
+
+# Used to have imagefields for mysql
+pillow
