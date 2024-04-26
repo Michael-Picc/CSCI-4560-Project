@@ -78,7 +78,7 @@ It should look like this:
 ## Step 8: Build your Models
 
 In your models.py file you have the liberty to create any objects, classes, or tables that you desire. Here is what mine looks like for this project:
-[models.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716293/models.txt)
+[[models.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716293/models.txt)](https://github.com/Michael-Picc/CSCI-4560-Project/blob/main/mydjangoapp/pd_portal/myapp/models.py)
 
 Your models are your tables and their fields in mysql, it is just setting them up for Django to use.
 
