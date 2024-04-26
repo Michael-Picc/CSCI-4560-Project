@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Doctor Portal</title>
+<title>Bootstrap Carousels</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>	
+    <link href="{% static 'signUp.css'%}" rel="stylesheet">
+    
+</head>
+
+<body>
+    
+    <img src="{% static 'hospital.png' %}" alt="hospital">
+
+    <h1 class= "center">Sign up for Patient Portal</h1>
+    <form action ="/createacc" method = "POST">
+    {% csrf_token %}
+        <h4>Name</h4>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder = "Enter your first name" Required><br>
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname" placeholder = "Enter your last name" Required><br>
+
+        <h4>Address</h4>
+        <label for="staddr">Street Address:</label><br>
+        <input type="text" id="staddr" name="staddr" placeholder = "Enter your street address" Required><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" placeholder = "Enter your city" Required><br>
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state"><br>
+        <label for="zip">Zip Code:</label><br>
+        <input type="text" id="zip" name="zip" placeholder = "Enter your zip code" Required><br>
+
+        <h4>Other Information</h4>
+        <label for="dob">Date Of Birth:</label><br>
+        <input type="date" id="dob" name="dob" placeholder = "Enter your DOB" Required><br>
+        
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select>
+        
+        <label for="ssn">Last 4 Digits of SSN:</label><br>
+        <input type="text" id="ssn" name="ssn" placeholder = "Enter your SSN" Required><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" placeholder = "Enter your email" Required><br>
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone" placeholder = "Enter your phone number" Required><br>
+
+        <label for="insName">Insurance Name:</label><br>
+        <input type="text" id="insName" name="insName"><br>
+        <label for="policyNum">Policy Number:</label><br>
+        <input type="text" id="policyNum" name="policyNum"><br>
+
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" placeholder = "Create a username" Required><br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password" placeholder = "Create a password" Required><br>
+
+        <button type="submit">Create Account</button>
+    </form>
+    
+
+<footer>Website by Micheal, Stuart, and Febronia </footer>
+
+</body>
+</html>
