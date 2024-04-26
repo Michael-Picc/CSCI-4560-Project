@@ -1,3 +1,5 @@
+{% block content %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,26 +11,28 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>	
-    <link href="signUp.css" rel="stylesheet">
+    <link href="{% static 'signUp.css'%}" rel="stylesheet">
     
 </head>
 
 <body>
     
-    <img src="hospital.png" alt="hospital">
+    <img src="{% static 'hospital.png' %}" alt="hospital">
 
-    <img src="blankprofile.png" class= "center" alt="profile">
+    <img src="{% static 'blankprofile.png' %}" class= "center" alt="profile">
 
-    <h4 class = "center">Name: </h4>
-    <h4 class = "center">DOB: </h4>
+ 
+    <h4 class = "center">Name: {{ fname }} </h4>
     
 
     <h5 class = "center">Do you want to create an appointment?</h5>
-   
-    <form class="center" action="CreateAppt.html" method="POST">
-        <input type="submit" value="Schedule Appointment">
+    <form class="center" action="/createappt" method="POST">
+        {% csrf_token %}
+        <button type="submit">Create Appointment</button>
     </form>
+   
 <footer>Website by Micheal, Stuart, and Febronia </footer>
 
 </body>
 </html>
+{% endblock %}
