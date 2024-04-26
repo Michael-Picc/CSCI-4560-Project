@@ -25,7 +25,7 @@ To clone a repo on github, go to https://docs.github.com/en/repositories/creatin
 
 ## Step 3: pip install requirements
 
-This step is an easy step but a crucial one, without it, the packages would never be isntalled. Since we have created a requirements.txt file, all we have to do to install every package needed is run the following command: *pip install -r requirements.txt*
+This step is an easy step but a crucial one, without it, the packages would never be isntalled. Since we have created a requirements.txt file, all we have to do to install every package needed is run the following command: *pip install -r requirements.txt* Note: if that does not work for you, run each pip install individually!
 
 Once it runs, you should see something like this:
 ![pip install requirements.txt](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/b284f9f7-697b-4931-a628-2390efa4f2c3)
@@ -43,9 +43,9 @@ Once you run that final command, you should see something like this pop up in yo
 ![Django running in CL](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/fe3fd613-5e9a-4cb0-b089-2ac04b878e42)
 
 If you were to copy and paste that link in your web browser of preference, you would see your django application is up and running in your local host!
+Click Ctrl+C to close the server for now as we are going to be making multiple changes to it for our django project
 
 ## Step 5: Setup Django REST Framework
-
 This can all be done in Command line, but for simplicities sake, I will be using VS Code for any changes to the application itself which many of the following steps will be doing.
 
 Go to settings.py and at the bottom of INSTALLED_APPS add: **'rest_framework',**
@@ -58,7 +58,7 @@ simply run the following command:
 *python manage.py startapp appName*
 
 ## Step 7: Connect Django to your mysql database
-
+If you would prefer skipping this step, it is completely optional but does add additional security to your application.
 First verify that your mysql database you are to connect to is up and running, and create one with a name of your choosing. 
 This can be done using Mysql workbench or the CLI it is up to. 
 Once you are done with that, go back to the settings.py of your django project and update the DATABASES variable to use mysql instead of sqlite. 
@@ -75,27 +75,15 @@ It should look like this:
   }
 }*
 
-## Step 8: Migrate
-
-To finalize these changes in your app, quit the server if you haven't already using ctrl+c, and then the following commands:
-*python manage.py showmigrations* This is an optional command, shows you what migrations will be executed
-*python manage.py migrate*
-**NOTE:** If you are running into errors with the showmigrations command and the error has to do with an unknown database, that means you have not created the database of said name
-
-Running those two commands should yield the following results:
-
-![showmigrations](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/303afcbd-57ca-4f22-a031-98352673ff81)
-![migrate](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/1c8ff51c-c380-4036-addb-db9ff29e3900)
-
-
-## Step 9: Build your Models
+## Step 8: Build your Models
 
 In your models.py file you have the liberty to create any objects, classes, or tables that you desire. Here is what mine looks like for this project:
 [models.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716293/models.txt)
 
 Your models are your tables and their fields in mysql, it is just setting them up for Django to use.
 
-## Step 10: Create your Serializers
+## Step 9: Create your Serializers
+Again, this is an optional step but will create a dashboard for your database which i highly recommend having for ease of access.
 While handling GET requests, we need a way of transforming complex model instances, into JSON, so we can send the data back via an HTTP response. Likewise, if a user sends data to our API via a POST or PUT request, we need a way to validate the data for integrity and security purposes before allowing that user request to add data to our database. We can achieve both of these tasks with serializers, which is a concept provided by Django Rest Framework.
 
 In the app you have created, create a file called serializers.py and fill it with the necessary information for your app.
@@ -104,10 +92,7 @@ Here is what our serializers.py looks like:
 
 [serializers.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716325/serializers.txt)
 
-
-
-
-## Step 11: Create your Views
+## Step 10: Create your Views
 Django Views are the backbone for CRUD applications built in it. This is how we will handle our GET,POST,PUT, and DELETE.
 
 In your app, create the views.py and fill it with what is necessarry for your app.
@@ -115,8 +100,7 @@ In your app, create the views.py and fill it with what is necessarry for your ap
 This is our views.py:
 [views.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716349/views.txt)
 
-
-## Step 12: Fix up your URLS
+## Step 11: Fix up your URLS and add your html files
 These will be the names of your browser locations of your REST API.
 
 Create your urls.py in your app and name them and fill them with the necessary information
@@ -129,9 +113,23 @@ add your newly created app to the urlpatterns. It should look something like thi
 
 ![urls.py](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/4acf224d-4763-4e39-8cad-51fe832c7b6a)
 
+Once that it done we now need to create a templates folder in our app and inside of that create a folder named the same name as the app you created in previous steps. In this nested folder, we are going to copy and paste all of our html and css files and static images. The {} throughout the html are python code embedded into the html to provide functionality and you can do the same to yours. 
+
+## Step 12: Migrate
+
+To finalize these changes in your app, quit the server if you haven't already using ctrl+c, and then the following commands:
+*python manage.py showmigrations* This is an optional command, shows you what migrations will be executed
+*python manage.py migrate*
+**NOTE:** If you are running into errors with the showmigrations command and the error has to do with an unknown database, that means you have not created the database of said name
+
+Running those two commands should yield the following results:
+
+![showmigrations](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/303afcbd-57ca-4f22-a031-98352673ff81)
+![migrate](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/1c8ff51c-c380-4036-addb-db9ff29e3900)
+
 
 ## Step 13: Congrats, You have finished your rest api!
-Now you get to the fun part and get to play around and insert data into your database through an api :)! You can go to any of the url locations you created and create,read,update, or delete any items in your tables. You can also do the same from a seperate command line to give yourself a more authentic feel of a true crud app:)! Have fun!
+Now you get to the fun part and get to play around and insert data into your database through an api :)! Go back to your CLI and run *python manage.py runserver* in the directory containing your manage.py file and go buck wild! You can go to any of the url locations you created and create,read,update, or delete any items in your tables. You also have the custom urls we created along the way for added functionality.
 
 
 
