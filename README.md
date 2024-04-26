@@ -101,7 +101,7 @@ This is our views.py:
 (https://github.com/Michael-Picc/CSCI-4560-Project/blob/main/mydjangoapp/pd_portal/myapp/views.py)
 
 ## Step 11: Clean up and add to our Setting.py
-Even though we have added multiple lines of code to our settings.py, there are a few more we need to add. We are going to change the user model Django uses by default to the one we created in models, and then we are going to add a few lines of code at the bottom fo the settings.py to point django towards our static files (HTML, CSS, PNG). It should look something like this when we are done.
+Even though we have added multiple lines of code to our settings.py, there are a few more we need to add. We are going to change the user model Django uses by default to the one we created in models by adding this line after authorized hosts, *AUTH_USER_MODEL = 'myapp.Profile'*, and then we are going to add a few lines of code at the bottom fo the settings.py to point django towards our static files (HTML, CSS, PNG). It should look something like this when we are done.
 (https://github.com/Michael-Picc/CSCI-4560-Project/blob/main/mydjangoapp/pd_portal/settings.py)
 
 
