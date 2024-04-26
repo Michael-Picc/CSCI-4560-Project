@@ -113,7 +113,7 @@ add your newly created app to the urlpatterns. It should look something like thi
 
 ![urls.py](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/4acf224d-4763-4e39-8cad-51fe832c7b6a)
 
-Once that it done we now need to create a templates folder in our app and inside of that create a folder named the same name as the app you created in previous steps. In this nested folder, we are going to copy and paste all of our html and css files and static images. The {} throughout the html are python code embedded into the html to provide functionality and you can do the same to yours. 
+Once that it done we now need to create a templates folder in our app and inside of that create a folder named the same name as the app you created in previous steps. In this nested folder, we are going to copy and paste all of our html and css files and static images. The {} throughout the html are python code embedded into the html to provide functionality and you can do the same to yours. Whenever you want to use python in your html in Django, you must start your html file with {% block content %} followed by {% load static %}. The first is to tell Django there is python code in this html file and the 2nd is so Django knows this html file is static and has css attached to it. Lastly, whenever you have an href link, always format the link like so:<link href="{% static 'homepage.css'%}" rel="stylesheet"> this is for Django to know this references a static css file within Django. The last step of this part is to go back to your CLI and run *python manage.py collectstatic* to make sure Django correctly identifies your static css and html.
 
 ## Step 12: Migrate
 
