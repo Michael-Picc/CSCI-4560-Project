@@ -78,7 +78,7 @@ It should look like this:
 ## Step 8: Build your Models
 
 In your models.py file you have the liberty to create any objects, classes, or tables that you desire. Here is what mine looks like for this project:
-[[models.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716293/models.txt)](https://github.com/Michael-Picc/CSCI-4560-Project/blob/main/mydjangoapp/pd_portal/myapp/models.py)
+(https://github.com/Michael-Picc/CSCI-4560-Project/blob/main/mydjangoapp/pd_portal/myapp/models.py)
 
 Your models are your tables and their fields in mysql, it is just setting them up for Django to use.
 
@@ -90,7 +90,7 @@ In the app you have created, create a file called serializers.py and fill it wit
 
 Here is what our serializers.py looks like:
 
-[serializers.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716325/serializers.txt)
+[serializers.txt]
 
 ## Step 10: Create your Views
 Django Views are the backbone for CRUD applications built in it. This is how we will handle our GET,POST,PUT, and DELETE.
@@ -98,7 +98,7 @@ Django Views are the backbone for CRUD applications built in it. This is how we 
 In your app, create the views.py and fill it with what is necessarry for your app.
 
 This is our views.py:
-[views.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716349/views.txt)
+[views.txt]
 
 ## Step 11: Fix up your URLS and add your html files
 These will be the names of your browser locations of your REST API.
@@ -106,12 +106,12 @@ These will be the names of your browser locations of your REST API.
 Create your urls.py in your app and name them and fill them with the necessary information
 
 This is our urls.py in the app:
-[urls.txt](https://github.com/Michael-Picc/CSCI-4560-Project/files/14716365/urls.txt)
+[urls.txt]
 
 after this is done, go to your django project urls.py that was created when you created the Django project and at the bottom of the file,
 add your newly created app to the urlpatterns. It should look something like this:
 
-![urls.py](https://github.com/Michael-Picc/CSCI-4560-Project/assets/136484545/4acf224d-4763-4e39-8cad-51fe832c7b6a)
+![urls.py]
 
 Once that it done we now need to create a templates folder in our app and inside of that create a folder named the same name as the app you created in previous steps. In this nested folder, we are going to copy and paste all of our html and css files and static images. The {} throughout the html are python code embedded into the html to provide functionality and you can do the same to yours. Whenever you want to use python in your html in Django, you must start your html file with {% block content %} followed by {% load static %}. The first is to tell Django there is python code in this html file and the 2nd is so Django knows this html file is static and has css attached to it. Lastly, whenever you have an href link, always format the link like so:<link href="{% static 'homepage.css'%}" rel="stylesheet"> this is for Django to know this references a static css file within Django. The last step of this part is to go back to your CLI and run *python manage.py collectstatic* to make sure Django correctly identifies your static css and html.
 
